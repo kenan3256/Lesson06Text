@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.kenanhaciyev.lesson06text.MyViewModel" />
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FF9123"
+        android:padding="50dp">
+
+        <EditText
+            android:id="@+id/edt_txt_input1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.prodactName}"
+            android:hint="Product name"
+            >
+
+        </EditText>
+        <EditText
+            android:id="@+id/edt_txt_input2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.prodactCode}"
+            android:hint="Product cod"
+            >
+
+        </EditText>
+        <EditText
+            android:id="@+id/edt_txt_input3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.prodactDescriptio}"
+            android:hint="Product description"
+            >
+
+        </EditText>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/cardview_shadow_end_color">
+
+            <Button
+                android:id="@+id/btn_DaxilEt"
+                android:layout_width="2dp"
+                android:layout_height="wrap_content"
+                android:text="Daxil et"
+                android:layout_weight="4">
+            </Button>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
+
+
+
