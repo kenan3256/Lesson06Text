@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.viewModel=viewModel
         binding.btnDaxilEt.setOnClickListener{
-            viewModel.addList()
+
+
         }
 
 
