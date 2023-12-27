@@ -11,20 +11,21 @@ import com.kenanhaciyev.lesson06text.entity.Prodact
 @Database(entities = [Prodact::class], version = 1)
 abstract class AppDatabase : RoomDatabase () {
 
-    abstract  fun prodactDao() : ProdactDAO
+    abstract fun prodactDao(): ProdactDAO
 
     companion object {
-        private var database : AppDatabase? = null
+        private var database: AppDatabase? = null
 
-        fun getDatabase(context: Context) : AppDatabase{
-            if(database != null){
-                return  database!!
+        fun getDatabase(context: Context): AppDatabase {
+            if (database != null) {
+                return database!!
 
-            }else{
+            } else {
                 database = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    "testProdactDB").build()
+                    "testProdactDB"
+                ).build()
                 return database!!
             }
         }

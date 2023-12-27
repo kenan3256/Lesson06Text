@@ -1,73 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
-
-    <data>
-        <variable
-            name="viewModel"
-            type="com.kenanhaciyev.lesson06text.MyViewModel" />
-
-    </data>
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#FF9123"
-        android:padding="50dp">
+        tools:context=".MainActivity"
+        android:background="#D5902A">
 
-        <EditText
-            android:id="@+id/edt_txt_input1"
-            android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/etcode"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Prodact Code"
+        android:inputType="number"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <EditText
+        android:id="@+id/etname"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginBottom="9dp"
+        android:ems="10"
+        android:hint="Prodact Name"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/etdesc"
+        app:layout_constraintEnd_toEndOf="@+id/etcode"
+        app:layout_constraintStart_toStartOf="@+id/etcode"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etdesc"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Prodact Description"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_insert"
+        app:layout_constraintEnd_toEndOf="@+id/etname"
+        app:layout_constraintStart_toStartOf="@+id/etname"
+        app:layout_constraintTop_toBottomOf="@+id/etname" />
+
+
+    <Button
+        android:id="@+id/btn_getAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="Goster"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_update"
+        app:layout_constraintEnd_toStartOf="@+id/btn_update"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_update" />
+
+    <Button
+        android:id="@+id/btn_insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Daxil et"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_update"
+        app:layout_constraintEnd_toEndOf="@+id/etdesc"
+        app:layout_constraintStart_toStartOf="@+id/etdesc"
+        app:layout_constraintTop_toBottomOf="@+id/etdesc" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@={viewModel.prodactName}"
-            android:hint="Product name"
-            >
+            android:layout_marginTop="8dp"
+            android:text="Yenile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_insert" />
 
-        </EditText>
-        <EditText
-            android:id="@+id/edt_txt_input2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={viewModel.prodactCode}"
-            android:hint="Product cod"
-            >
+        <ScrollView
+            android:id="@+id/txt_getAllShow"
+            android:layout_width="349dp"
+            android:layout_height="235dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_update">
 
-        </EditText>
-        <EditText
-            android:id="@+id/edt_txt_input3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={viewModel.prodactDescriptio}"
-            android:hint="Product description"
-            >
-
-        </EditText>
-
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/cardview_shadow_end_color">
-
-            <Button
-                android:id="@+id/btn_DaxilEt"
-                android:layout_width="2dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Daxil et"
-                android:layout_weight="4">
-            </Button>
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/tvsonuc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ScrollView>
 
-        </LinearLayout>
-
-    </LinearLayout>
-
-</layout>
-
-
+        <Button
+            android:id="@+id/btn_sil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Sil"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_update"
+            app:layout_constraintTop_toTopOf="@+id/btn_update" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
